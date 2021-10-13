@@ -26,7 +26,7 @@ class CustomBot(Bot):
 
     def load_extensions(self):
         self.logger.info("Loading extensions...")
-        for cog in ["cogs.role_selector"]:
+        for cog in ["cogs.role_selector", "cogs.speak"]:
             self.load_extension(cog)
 
     def run(self, token: str):
