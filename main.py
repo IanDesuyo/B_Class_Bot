@@ -17,7 +17,7 @@ class CustomBot(Bot):
     def load_config(self):
         self.logger.info("Loading config...")
         try:
-            with open("./config.json") as f:
+            with open("./config.json", encoding="utf-8") as f:
                 self.config: dict = json.load(f)
 
         except:

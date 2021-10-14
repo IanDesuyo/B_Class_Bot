@@ -30,5 +30,31 @@
       "id": 890566023458222110,
       "style": 3
     }
+  ],
+  "speak": [
+    {
+      "regex": "([早午晚])安",
+      "response": ["{0[1]}安啊"]
+    },
+    {
+      "regex": "(hello|哈囉|[你妳]好|嗨)",
+      "response": ["{0[1]}"]
+    },
+    {
+      "regex": ".*(嗎|沒|ㄇ)(\\?|)$",
+      "response": ["嗯", "對", "好啊", "可以", "我覺得可以", "不要", "不行", "不可以"]
+    },
+    {
+      "regex": ".*是不是.*(\\?|)",
+      "response": ["是", "不是"]
+    }
+  ],
+  "ShibaInuCard": [
+    "https://imgur.dcard.tw/HlrxSGWh.jpg",
+    "https://tenor.com/view/%E4%B8%8D%E5%8F%AF%E4%BB%A5%E8%89%B2%E8%89%B2-gif-23201012",
+    "https://imgur.dcard.tw/O37x4wbh.jpg",
+    "https://imgur.dcard.tw/gQ5QePIh.jpg",
+    "https://imgur.dcard.tw/HwCu2Qeh.jpg",
+    "https://i.imgur.com/1JKWcOz.jpg"
   ]
 }
