@@ -10,7 +10,7 @@ class Speak(commands.Cog):
     def __init__(self, bot: CustomBot):
         self.bot = bot
         self.speaks: List[dict] = self.bot.config.get("speak")
-        self.ShibaInuCard: List[str] = self.bot.config.get("ShibaInuCard")
+        self.shibaInuCards: List[str] = self.bot.config.get("ShibaInuCards")
 
     @commands.Cog.listener()
     async def on_message(self, message: Message):
@@ -23,7 +23,8 @@ class Speak(commands.Cog):
             return await message.channel.send(random.choice(["幹嘛?", "?", "<:cabpog:890533260759810129>"]))
 
         if "色色" in message.content:
-            return await message.reply(random.choice(self.ShibaInuCard))
+            card: dict = random.choice(self.shibaInuCards)
+            return await message.reply(card.get("src"))
 
         if "mumu" in message.content.lower():
             return await message.reply(

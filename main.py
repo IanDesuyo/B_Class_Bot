@@ -2,7 +2,7 @@ import json
 import os
 import logging
 import sys
-from discord import Message
+from discord import Message, Status, Activity, ActivityType
 from discord.ext.commands import Bot
 from utils.custom_slash_command import CustomSlashCommand
 
@@ -20,6 +20,12 @@ class CustomBot(Bot):
             with open("./config.json", encoding="utf-8") as f:
                 self.config: dict = json.load(f)
 
+            if os.path.exists("./shibaInuCards.json"):  # extra cards
+                with open("./shibaInuCards.json", encoding="utf-8") as f:
+                    self.config["ShibaInuCards"] = json.load(f)
+            else:
+                self.config["ShibaInuCards"] = []
+
         except:
             self.logger.error("Failed to load config.json")
             raise SystemExit
@@ -35,6 +41,14 @@ class CustomBot(Bot):
 
     async def on_ready(self):
         self.logger.info(f"Logged in as {self.user.name} ({self.user.id})")
+
+        await self.change_presence(
+                status=Status.online,
+                activity=Activity(
+                    type=ActivityType.watching,
+                    name="妹子"
+                ),
+            )
 
     async def on_message(self, message: Message):
         """
